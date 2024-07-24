@@ -1,0 +1,18 @@
+---
+- hosts: appserver
+  sudo: yes
+  name: play1
+  tasks:
+     - name: Execute command date
+       command: date
+     - name:Execute script on server 
+       script: b.sh 
+     - name: Install nginx
+       apt: name=nginx state=latest
+-hosts: host2
+ name: play2
+ sudo: yes
+ tasks:
+    - name:  Install apache2
+      apt:  name=apache2 state=latest
+      

@@ -1,0 +1,17 @@
+---
+- hosts: host1
+  sudo: yes
+  name: play1
+  tasks:
+     - name: execute command 'date'
+       command: date
+     - name: Execute script on server
+       script: test_script.sh
+- hosts: host2    
+  name: play2
+  sudo: yes
+  tasks: 
+     - name: Execute script on server
+       script: test_script.sh
+     - name: Install nginx
+       apt: name=nginx state=latest 
